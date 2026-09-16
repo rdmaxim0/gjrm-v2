@@ -1,0 +1,406 @@
+/* ------------------------------------- */
+/* BASE E EFEITOS DE FUNDO               */
+/* ------------------------------------- */
+.contact-section {
+    padding: 120px 20px;
+    background-color: var(--bg-page);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.contact-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw;
+    font-weight: 900;
+    color: var(--text-main);
+    opacity: 0.02; 
+    pointer-events: none;
+    z-index: -2;
+    white-space: nowrap;
+    user-select: none;
+}
+
+body.dark-theme .contact-bg-text {
+    opacity: 0.03;
+}
+
+.contact-glow {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 69, 225, 0.05) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body.dark-theme .contact-glow {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------- */
+/* COLUNA ESQUERDA (TEXTO E CARTÕES)     */
+/* ------------------------------------- */
+.contact-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0; /* Essencial para o flexbox não estourar a tela */
+}
+
+.contact-header-left {
+    margin-bottom: 40px;
+}
+
+.contact-header-left .premium-subtitle {
+    color: var(--brand-blue-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.contact-header-left h2 {
+    font-size: clamp(32px, 4vw, 48px); /* Ajusta dinamicamente o tamanho da fonte */
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.contact-header-left p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Cartões em Formato Pílula */
+.glass-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.glass-info-card {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body.dark-theme .glass-info-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.glass-info-card:hover:not(.no-hover) {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+    transform: translateX(4px);
+}
+
+body.dark-theme .glass-info-card:hover:not(.no-hover) {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.gic-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+body.dark-theme .gic-icon {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--brand-white);
+}
+
+.gic-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0; /* Permite que textos muito longos quebrem a linha */
+}
+
+.gic-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.gic-value {
+    font-size: 15px;
+    color: var(--text-main);
+    font-weight: 600;
+    word-break: break-word; /* Quebra o texto de e-mails longos no mobile */
+}
+
+.gic-arrow {
+    color: var(--text-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+.glass-info-card:hover .gic-arrow {
+    transform: translate(2px, -2px);
+    color: var(--text-main);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme .glass-info-card:hover .gic-arrow {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Wpp Card Especial */
+.wpp-card {
+    margin-top: 8px;
+}
+
+.wpp-icon {
+    background-color: rgba(37, 211, 102, 0.15);
+    color: #25D366;
+}
+
+body.dark-theme .wpp-icon {
+    background-color: rgba(37, 211, 102, 0.2);
+}
+
+/* ------------------------------------- */
+/* COLUNA DIREITA (FORMULÁRIO UNIFICADO) */
+/* ------------------------------------- */
+.contact-right {
+    flex: 1.2;
+    width: 100%;
+}
+
+.glass-form-container {
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    width: 100%;
+    box-sizing: border-box; /* Previne estouro de largura */
+}
+
+body.dark-theme .glass-form-container {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.gf-row.split {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.gf-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+.gf-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+/* Inputs Blindados contra quebra de layout */
+.gf-group input,
+.gf-group select,
+.gf-group textarea {
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--text-main);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+body.dark-theme .gf-group input,
+body.dark-theme .gf-group select,
+body.dark-theme .gf-group textarea {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-color: rgba(255, 255, 255, 0.03);
+}
+
+.gf-group input:focus,
+.gf-group select:focus,
+.gf-group textarea:focus {
+    background-color: rgba(0, 0, 0, 0.01);
+    border-color: var(--brand-blue-light);
+}
+
+body.dark-theme .gf-group input:focus,
+body.dark-theme .gf-group select:focus,
+body.dark-theme .gf-group textarea:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------------------------- */
+/* SELECT E ÍCONE                        */
+/* ------------------------------------- */
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.gf-group select {
+    appearance: none;
+    cursor: pointer;
+    width: 100%;
+    padding-right: 48px;
+}
+
+.select-icon {
+    position: absolute;
+    right: 16px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.gf-group select option {
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+body.dark-theme .gf-group select option {
+    background-color: #0f172a; 
+    color: #ffffff;            
+}
+
+.gf-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botão Submit Contraste */
+.glass-submit-btn {
+    margin-top: 8px;
+    padding: 18px;
+    background-color: var(--text-main);
+    color: var(--bg-page);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body.dark-theme .glass-submit-btn {
+    background-color: var(--brand-white);
+    color: var(--brand-blue);
+}
+
+.glass-submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------- */
+/* RESPONSIVIDADE MOBILE ALINHADA        */
+/* ------------------------------------- */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* Ajustes agressivos para telas muito pequenas (<480px e 442px) */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 80px 16px; /* Reduz padding lateral da seção */
+    }
+
+    .contact-container {
+        width: 100%;
+    }
+
+    .contact-left, 
+    .contact-right {
+        width: 100%;
+        flex: none; 
+    }
+
+    .gf-row.split {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .glass-form-container {
+        width: 100%;
+        padding: 24px 16px; /* Salva o espaçamento do form em telas pequenas */
+    }
+
+    .glass-info-card {
+        padding: 16px; /* Evita que os cards estourem na lateral */
+    }
+}

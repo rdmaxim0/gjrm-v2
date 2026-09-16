@@ -1,0 +1,205 @@
+/* ------------------------------------- */
+/* ESTRUTURA DA SEÇÃO DE SERVIÇOS        */
+/* ------------------------------------- */
+.services-section {
+    padding: 120px 20px;
+    background-color: var(--bg-page); 
+    transition: background-color 0.3s ease;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-intro {
+    max-width: 600px;
+    margin: 16px auto 0 auto;
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ------------------------------------- */
+/* GRADE CORPORATIVA PREMIUM             */
+/* ------------------------------------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    align-items: start;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    outline: none;
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+body.dark-theme .service-card {
+    background-color: #1e293b;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover,
+.service-card:focus {
+    transform: scale(1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .service-card:hover,
+body.dark-theme .service-card:focus {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------------- */
+/* ÍCONE E CABEÇALHO DO CARTÃO           */
+/* ------------------------------------- */
+.service-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0, 69, 225, 0.1) 0%, rgba(0, 69, 225, 0.02) 100%);
+    color: var(--brand-blue-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .service-icon-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    color: var(--brand-white);
+}
+
+.service-card:hover .service-icon-wrapper,
+.service-card:focus .service-icon-wrapper {
+    transform: scale(1.1);
+    background: var(--brand-blue-light);
+    color: #ffffff;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+.service-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 0; 
+}
+
+/* ------------------------------------- */
+/* TASKS ESCONDIDAS (EXPANSÃO)           */
+/* ------------------------------------- */
+.service-tasks-wrapper {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+
+.service-card:hover .service-tasks-wrapper,
+.service-card:focus .service-tasks-wrapper {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 16px;
+}
+
+.service-divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+body.dark-theme .service-divider {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.service-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.service-tasks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.check-task {
+    color: var(--brand-blue-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+body.dark-theme .check-task {
+    color: var(--brand-blue-light);
+}
+
+/* ------------------------------------- */
+/* DICA MOBILE (SETA ANIMADA AZUL)       */
+/* ------------------------------------- */
+.mobile-tap-hint {
+    display: none;
+    color: var(--brand-blue-light);
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+}
+
+.service-card:hover .mobile-tap-hint,
+.service-card:focus .mobile-tap-hint {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-card {
+        padding: 32px 24px;
+    }
+    .mobile-tap-hint {
+        display: inline-flex;
+        align-items: center;
+        animation: bounceHint 2s infinite;
+    }
+    .service-card:hover .mobile-tap-hint,
+    .service-card:focus .mobile-tap-hint {
+        animation: none;
+    }
+}
+
+@keyframes bounceHint {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}

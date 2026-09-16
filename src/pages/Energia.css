@@ -1,0 +1,337 @@
+/* =================================================================
+   VARIÁVEIS DE TEMA
+================================================================= */
+.energia-wrapper {
+  --bg-main: #ffffff;
+  --bg-alt: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #2da433; /* Azul Institucional */
+  --accent-hover: #0e5a12;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --footer-bg: #0f172a;
+  --footer-text: #94a3b8;
+
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  line-height: 1.6;
+}
+
+body.dark-theme .energia-wrapper {
+  --bg-main: #0f172a;
+  --bg-alt: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --accent: #2da433; /* Azul no tema escuro */
+  --accent-hover: #0e5a12;
+  --border-color: #334155;
+  --card-bg: #1e293b;
+}
+
+/* =================================================================
+   BASE E ESTRUTURA
+================================================================= */
+.energia-wrapper {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding { padding: 5rem 0; }
+.bg-alt { background-color: var(--bg-alt); }
+.text-center { text-align: center; }
+
+.section-subtitle {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-items: center; 
+}
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); justify-items: stretch; }
+}
+
+/* =================================================================
+   BOTÕES
+================================================================= */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+  will-change: transform; 
+}
+
+.btn-primary { background-color: var(--accent); color: #fff; }
+.btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--text-main);
+}
+.btn-secondary:hover { background-color: var(--accent); color: #fff; }
+
+/* =================================================================
+   HEADER OVERRIDE
+================================================================= */
+.energia-header-override {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--border-color);
+}
+.energia-header-override .header-nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+.energia-header-override .header-nav a {
+  color: var(--text-main); text-decoration: none; font-weight: 600; position: relative; padding: 0.5rem 0; transition: color 0.2s ease; background: none; border: none;
+}
+.energia-header-override .header-nav a:hover, .energia-header-override .header-nav a.active { color: var(--accent); }
+.energia-header-override .header-nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
+.energia-header-override .header-nav a:hover::after, .energia-header-override .header-nav a.active::after { width: 100%; }
+
+.header-logos { display: flex; align-items: center; gap: 1rem; }
+.logo-img { max-height: 45px; width: auto; display: block; }
+.logo-divider { color: var(--text-muted); font-weight: 300; font-size: 1.2rem; }
+.logo-partner { font-weight: 700; color: var(--text-main); font-size: 1.1rem; letter-spacing: 0.5px; }
+
+@media (max-width: 600px) {
+  .logo-divider, .logo-partner, .energia-header-override .btn-voltar { display: none; }
+}
+
+/* =================================================================
+   HERO
+================================================================= */
+.energia-hero {
+  height: 80vh; display: flex; align-items: center; padding: 0 5%;
+  background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('./solarBg.jpg') center/cover no-repeat; color: #fff;
+}
+.hero-content { max-width: 700px; }
+.subtitle-highlight { font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; display: block; color: #4ade80; }
+.hero-title { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; }
+.hero-desc { font-size: 1.2rem; margin-bottom: 2.5rem; color: #e2e8f0; }
+
+/* =================================================================
+   ABOUT & IMAGENS
+================================================================= */
+.foto-sobre { width: 100%; height: 450px; object-fit: cover; object-position: center; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); display: block; }
+.about-section p { margin-bottom: 15px; }
+.p-before-btn { margin-bottom: 35px !important; }
+
+/* =================================================================
+   BENEFITS (Efeito 3D Flip Card - ALINHADO)
+================================================================= */
+.benefit-card-container {
+  background-color: transparent; perspective: 1000px; cursor: pointer; outline: none; height: 280px; width: 100%; max-width: 350px; 
+}
+.benefit-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
+.benefit-card-container:hover .benefit-card-inner, .benefit-card-container:focus .benefit-card-inner { transform: rotateY(180deg); }
+
+.benefit-card-front, .benefit-card-back {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 12px; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); box-sizing: border-box; 
+}
+
+.benefit-card-front { background-color: var(--card-bg); border: 1px solid var(--border-color); }
+.icon-circle { width: 80px; height: 80px; background-color: var(--bg-main); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem auto; color: var(--accent); }
+.benefit-card-front h3 { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0; color: var(--text-main); }
+
+.benefit-card-back { background-color: var(--accent); color: #ffffff; transform: rotateY(180deg); border: 1px solid var(--accent); }
+.benefit-card-back h3 { color: #ffffff; margin-top: 0; margin-bottom: 1rem; }
+.benefit-card-back p { color: rgba(255, 255, 255, 0.95); margin: 0; font-size: 0.95rem; line-height: 1.5; }
+
+.mobile-tap-hint { display: none; color: var(--accent); }
+@media (max-width: 768px) { .mobile-tap-hint { display: inline-flex; align-items: center; animation: bounceHint 2s infinite; } }
+@keyframes bounceHint { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+
+/* =================================================================
+   SERVICES CARDS
+================================================================= */
+.service-card {
+  background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; will-change: transform; width: 100%; display: flex; flex-direction: column;
+}
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.service-img-wrapper { position: relative; width: 100%; height: 240px; overflow: hidden; }
+.foto-servico { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.service-card:hover .foto-servico { transform: scale(1.08); }
+.service-img-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background: linear-gradient(to bottom, transparent, var(--card-bg)); z-index: 1; }
+.service-content { padding: 0 2rem 2rem 2rem; position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
+.service-content h3 { margin-top: 0; color: var(--text-main); font-size: 1.35rem; margin-bottom: 1.2rem; position: relative; padding-bottom: 0.8rem; }
+.service-content h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent); transition: width 0.3s ease; border-radius: 2px; }
+.service-card:hover .service-content h3::after { width: 80px; }
+.service-content p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1; }
+.service-link { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; transition: color 0.3s ease; }
+.service-link:hover { color: var(--accent-hover); }
+.service-link span { margin-left: 0.5rem; transition: transform 0.3s ease; }
+.service-card:hover .service-link span { transform: translateX(6px); }
+
+
+/* =================================================================
+   CONTACTS DA PAGINA PRINCIPAL (INTEGRADO NA ENERGIA)
+================================================================= */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+  .contact-container { grid-template-columns: 1fr 1fr; }
+}
+
+.contact-left { display: flex; flex-direction: column; gap: 2rem; }
+
+/* Cards de Informação */
+.glass-cards-container { display: flex; flex-direction: column; gap: 1rem; }
+
+.glass-info-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.glass-info-card:not(.no-hover):hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.gic-icon { color: var(--accent); margin-right: 1.25rem; display: flex; align-items: center; justify-content: center; }
+.gic-text { display: flex; flex-direction: column; flex-grow: 1; }
+.gic-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+.gic-value { font-weight: 600; color: var(--text-main); font-size: 1.05rem; }
+.gic-arrow { color: var(--text-muted); transition: color 0.3s, transform 0.3s; }
+.glass-info-card:not(.no-hover):hover .gic-arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+/* Card Destacado do WhatsApp */
+.wpp-card { background-color: var(--accent); border-color: var(--accent); }
+.wpp-card:not(.no-hover):hover { background-color: var(--accent-hover); border-color: var(--accent-hover); }
+.wpp-card .gic-icon, .wpp-card .gic-value, .wpp-card .gic-arrow { color: #fff; }
+.wpp-card .gic-value { font-size: 1.1rem; }
+
+/* Formulário Integrado */
+.glass-form-container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.glass-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.gf-row { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
+
+@media (min-width: 600px) {
+  .gf-row.split { flex-direction: row; }
+}
+
+.gf-group { display: flex; flex-direction: column; flex: 1; position: relative; }
+.gf-group label { margin-bottom: 0.5rem; color: var(--text-main); font-weight: 600; font-size: 0.95rem; }
+
+.glass-form input, .glass-form select, .glass-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; 
+}
+
+.glass-form input:focus, .glass-form select:focus, .glass-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15); 
+}
+
+.select-wrapper { position: relative; width: 100%; }
+.glass-form select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 2.5rem; }
+.select-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+
+.glass-submit-btn {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.glass-submit-btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+/* =================================================================
+   FOOTER LIMPO E CENTRALIZADO
+================================================================= */
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.footer-content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-logo-img { max-height: 45px; margin-bottom: 1.5rem; }
+
+.footer-content-centered p {
+  margin: 0; font-size: 0.9rem; width: 100%;
+}

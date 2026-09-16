@@ -1,0 +1,265 @@
+.projects-section {
+    padding: 120px 20px;
+    background-color: var(--bg-page);
+}
+
+.projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------- */
+/* CABEÇALHO PREMIUM RESTAURADO          */
+/* ------------------------------------- */
+.premium-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.premium-subtitle {
+    display: inline-block;
+    color: var(--brand-blue-light);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.premium-header h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+/* ------------------------------------- */
+/* CARROSSEL FOTOGRÁFICO                 */
+/* ------------------------------------- */
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 calc(33.333% - 16px);
+    min-width: 280px;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 12px;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35); /* 35% de escurecimento */
+    z-index: 1;
+    pointer-events: none;
+    transition: background-color 0.4s ease;
+}
+
+.carousel-item:hover::before {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.carousel-item:hover .carousel-image {
+    transform: scale(1.05);
+}
+/* ------------------------------------- */
+/* TEXTO FIXO E ÍCONE DE EXPANSÃO        */
+/* ------------------------------------- */
+.carousel-persistent-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px 24px 24px 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha o texto e o ícone pela base */
+    pointer-events: none; 
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-category {
+    color: var(--brand-blue-light);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.info-text h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* O botão com o ícone no canto direito */
+.expand-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Animação do botão quando passa o mouse no card inteiro */
+.carousel-item:hover .expand-icon-wrapper {
+    background-color: var(--brand-blue-light);
+    border-color: var(--brand-blue-light);
+    transform: scale(1.1);
+}
+
+/* ------------------------------------- */
+/* CONTROLES E INDICADORES PREMIUM       */
+/* ------------------------------------- */
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.carousel-navigation button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.carousel-navigation button:hover:not(:disabled) {
+    color: var(--brand-blue-light);
+}
+
+.carousel-navigation button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.carousel-indicators {
+    display: none;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Novo Indicador Estilo "Tracinho" (Corporate) */
+.premium-indicator {
+    width: 24px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--text-muted);
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.premium-indicator.active {
+    opacity: 1;
+    background-color: var(--brand-blue-light);
+    width: 48px; /* O tracinho ativo fica mais longo */
+}
+
+/* ------------------------------------- */
+/* MODAL SPLIT (Mantido do anterior)     */
+/* ------------------------------------- */
+.split-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000; padding: 20px; animation: fadeIn 0.3s ease-out;
+}
+
+.split-modal-content {
+    background-color: var(--bg-page); width: 100%; max-width: 1100px;
+    height: 80vh; min-height: 500px; border-radius: 12px; overflow: hidden;
+    position: relative; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+}
+
+.split-modal-close {
+    position: absolute; top: 24px; right: 24px; width: 44px; height: 44px;
+    border-radius: 50%; border: none; background-color: rgba(0,0,0,0.05);
+    color: var(--text-main); display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 10; transition: background-color 0.2s;
+}
+
+body.dark-theme .split-modal-close { background-color: rgba(255,255,255,0.1); }
+.split-modal-close:hover { background-color: rgba(0,0,0,0.1); }
+
+.modal-left { flex: 1.2; height: 100%; }
+.modal-left img { width: 100%; height: 100%; object-fit: cover; }
+.modal-right { flex: 1; height: 100%; overflow-y: auto; display: flex; align-items: center; }
+.modal-right-content { padding: 64px 48px; width: 100%; }
+
+.modal-category { color: var(--brand-blue-light); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+body.dark-theme .modal-category { color: var(--brand-white); }
+.modal-right-content h2 { font-size: clamp(32px, 3vw, 40px); color: var(--text-main); margin: 12px 0 8px 0; line-height: 1.1; }
+.modal-client { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+body.dark-theme .modal-client { border-bottom-color: rgba(255,255,255,0.1); }
+.modal-text-block h4 { color: var(--text-main); font-size: 18px; margin-bottom: 12px; }
+.modal-text-block p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 48px; }
+
+.modal-action-btn { display: inline-block; background-color: var(--brand-blue); color: #ffffff; padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background-color 0.3s ease; }
+body.dark-theme .modal-action-btn { background-color: #ffffff; color: var(--brand-blue); }
+.modal-action-btn:hover { background-color: var(--brand-blue-light); }
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .carousel-item { flex: 0 0 100%; min-width: 100%; }
+    .split-modal-content { flex-direction: column; height: 90vh; }
+    .modal-left { flex: none; height: 250px; }
+    .modal-right { align-items: flex-start; }
+    .modal-right-content { padding: 32px 24px; }
+    .carousel-indicators { display: flex; }
+}

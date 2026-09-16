@@ -1,0 +1,181 @@
+/* Glassmorphism Refinado */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg);
+    /* Desfoque alto + Saturação cria o efeito real de vidro temperado */
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 8px 32px var(--header-shadow);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-text a{
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    margin-left: -20px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.gear-icon {
+    width: 80px;
+    height: 80px;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* NavBar */
+.header-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+    color: var(--btn-bg);
+}
+
+/* Botão Neo-Brutalism (Automático via Variáveis Globais) */
+.nav-contato-btn {
+    background-color: var(--btn-bg) !important;
+    color: var(--btn-text) !important;
+    padding: 5px 15px;
+    font-weight: 700 !important;
+    border: 1px solid var(--btn-border);
+    box-shadow: 6px 6px 0px 0px var(--btn-shadow);
+    
+}
+
+.nav-contato-btn:hover {
+  transform: translate(3px, 3px); 
+  box-shadow: 3px 3px 0px 0px var(--btn-shadow);
+}
+
+.nav-contato-btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px 0px var(--btn-shadow);
+}
+
+/* Botão Neumorphism (Switch Tema) */
+.custom-theme-switch {
+  position: relative;
+  width: 60px;
+  height: 32px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: background-color 0.4s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+.custom-theme-switch.light { background-color: #e2e8f0; }
+.custom-theme-switch.dark { background-color: #1e293b; }
+
+.switch-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.custom-theme-switch.light .switch-thumb {
+  background-color: #1e293b;
+  color: #ffffff;
+  transform: translateX(0);
+}
+
+.custom-theme-switch.dark .switch-thumb {
+  background-color: #ffffff;
+  color: #1e293b;
+  transform: translateX(28px); 
+}
+
+/* Menu Mobile */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: block; }
+  .header-container { position: relative; }
+
+  .header-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-page);
+      border-bottom: 1px solid var(--header-border);
+      padding: 20px;
+      box-shadow: 0 10px 15px -3px var(--header-shadow);
+      transform: translateY(-20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: -1;
+  }
+
+  .header-nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+  }
+
+  .header-nav ul {
+      flex-direction: column;
+      gap: 24px;
+  }
+}
