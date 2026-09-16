@@ -266,7 +266,7 @@ body.dark-theme .glass-form-container {
 .gf-group select,
 .gf-group textarea {
     background-color: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--text-muted);
     border-radius: 12px;
     padding: 16px;
     color: var(--text-main);
