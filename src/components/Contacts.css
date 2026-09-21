@@ -1,6 +1,6 @@
-/* ------------------------------------- */
-/* BASE E EFEITOS DE FUNDO               */
-/* ------------------------------------- */
+/* =================================================================
+   ESTRUTURA GERAL DE CONTATOS
+================================================================= */
 .contact-section {
     padding: 120px 20px;
     background-color: var(--bg-page);
@@ -55,15 +55,15 @@ body.dark-theme .contact-glow {
     box-sizing: border-box;
 }
 
-/* ------------------------------------- */
-/* COLUNA ESQUERDA (TEXTO E CARTÕES)     */
-/* ------------------------------------- */
+/* =================================================================
+   COLUNA ESQUERDA (TEXTO E CARTÕES)
+================================================================= */
 .contact-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-width: 0; /* Essencial para o flexbox não estourar a tela */
+    min-width: 0; 
 }
 
 .contact-header-left {
@@ -79,7 +79,7 @@ body.dark-theme .contact-glow {
 }
 
 .contact-header-left h2 {
-    font-size: clamp(32px, 4vw, 48px); /* Ajusta dinamicamente o tamanho da fonte */
+    font-size: clamp(32px, 4vw, 48px); 
     font-weight: 700;
     color: var(--text-main);
     line-height: 1.1;
@@ -106,13 +106,14 @@ body.dark-theme .contact-glow {
     display: flex;
     align-items: center;
     padding: 16px 20px;
-    background-color: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #ffffff; 
+    border: 1px solid rgba(0, 0, 0, 0.08); 
     border-radius: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 body.dark-theme .glass-info-card {
@@ -121,22 +122,24 @@ body.dark-theme .glass-info-card {
 }
 
 .glass-info-card:hover:not(.no-hover) {
-    background-color: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #f8fafc;
+    border-color: var(--brand-blue-light);
     transform: translateX(4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 body.dark-theme .glass-info-card:hover:not(.no-hover) {
     background-color: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--brand-blue-light);
 }
 
+/* ÍCONES (E-mail, Telefone e Nossa Atuação 100% Azuis) */
 .gic-icon {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.04);
-    color: var(--text-main);
+    background-color: rgba(0, 69, 225, 0.08) !important;
+    color: #0045e1 !important; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,15 +148,15 @@ body.dark-theme .glass-info-card:hover:not(.no-hover) {
 }
 
 body.dark-theme .gic-icon {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--brand-white);
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
 }
 
 .gic-text {
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-width: 0; /* Permite que textos muito longos quebrem a linha */
+    min-width: 0; 
 }
 
 .gic-label {
@@ -165,9 +168,9 @@ body.dark-theme .gic-icon {
 
 .gic-value {
     font-size: 15px;
-    color: var(--text-main);
+    color: var(--text-main) !important;
     font-weight: 600;
-    word-break: break-word; /* Quebra o texto de e-mails longos no mobile */
+    word-break: break-word; 
 }
 
 .gic-arrow {
@@ -185,44 +188,82 @@ body.dark-theme .gic-icon {
 
 .glass-info-card:hover .gic-arrow {
     transform: translate(2px, -2px);
-    color: var(--text-main);
-    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--brand-blue-light);
+    background-color: rgba(0, 69, 225, 0.05);
 }
 
 body.dark-theme .glass-info-card:hover .gic-arrow {
+    color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Wpp Card Especial */
+/* =================================================================
+   WPP CARD ESPECIAL (Fundo Verde Claro, Ícone Verde Escuro, Letra Preta)
+================================================================= */
 .wpp-card {
     margin-top: 8px;
+    background-color: #ffffff !important; 
+    border-color: rgba(37, 211, 102, 0.3) !important;
 }
 
-.wpp-icon {
-    background-color: rgba(37, 211, 102, 0.15);
-    color: #25D366;
+body.dark-theme .wpp-card {
+    background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
-body.dark-theme .wpp-icon {
-    background-color: rgba(37, 211, 102, 0.2);
+/* Ícone com fundo verde claro */
+.wpp-card .gic-icon {
+    background-color: rgba(37, 211, 102, 0.15) !important;
+    color: #0b8f41 !important; /* Verde escuro para o SVG */
 }
 
-/* ------------------------------------- */
-/* COLUNA DIREITA (FORMULÁRIO UNIFICADO) */
-/* ------------------------------------- */
+body.dark-theme .wpp-card .gic-icon {
+    color: #25D366 !important; 
+}
+
+/* Texto Escurecido à Força */
+.wpp-card .gic-value {
+    color: #0f172a !important; 
+}
+
+body.dark-theme .wpp-card .gic-value {
+    color: #ffffff !important; 
+}
+
+/* Seta escura no modo claro */
+.wpp-card .gic-arrow {
+    color: #0b8f41 !important;
+    background-color: transparent !important;
+}
+
+body.dark-theme .wpp-card .gic-arrow {
+    color: #25D366 !important;
+}
+
+.wpp-card:not(.no-hover):hover {
+    background-color: rgba(37, 211, 102, 0.05) !important;
+    border-color: #25D366 !important;
+}
+
+body.dark-theme .wpp-card:not(.no-hover):hover {
+    background-color: rgba(37, 211, 102, 0.1) !important;
+}
+
+/* =================================================================
+   COLUNA DIREITA (FORMULÁRIO UNIFICADO)
+================================================================= */
 .contact-right {
     flex: 1.2;
     width: 100%;
 }
 
 .glass-form-container {
-    background-color: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #ffffff; 
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 24px;
-    padding: 32px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06); 
     width: 100%;
-    box-sizing: border-box; /* Previne estouro de largura */
+    box-sizing: border-box; 
 }
 
 body.dark-theme .glass-form-container {
@@ -255,48 +296,54 @@ body.dark-theme .glass-form-container {
 
 .gf-group label {
     font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-weight: 600;
+    color: var(--text-main);
     margin-bottom: 8px;
     margin-left: 4px;
 }
 
-/* Inputs Blindados contra quebra de layout */
-.gf-group input,
-.gf-group select,
-.gf-group textarea {
-    background-color: rgba(0, 0, 0, 0.03);
-    border: 1px solid var(--text-muted);
+/* =================================================================
+   INPUTS (CAIXAS CINZAS ESCURECIDAS À FORÇA PARA NÃO SUMIREM)
+================================================================= */
+.glass-form input,
+.glass-form select,
+.glass-form textarea {
+    background-color: #e2e8f0 !important; /* CINZA CLARO FORÇADO (NÃO É MAIS BRANCO) */
+    border: 1px solid #94a3b8 !important; /* BORDA CINZA ESCURA FORÇADA */
     border-radius: 12px;
     padding: 16px;
-    color: var(--text-main);
+    color: #0f172a !important; /* Texto interno escuro forçado */
     font-size: 15px;
     font-family: inherit;
     outline: none;
     transition: all 0.3s ease;
     width: 100%;
-    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+    box-sizing: border-box; 
 }
 
-body.dark-theme .gf-group input,
-body.dark-theme .gf-group select,
-body.dark-theme .gf-group textarea {
-    background-color: rgba(0, 0, 0, 0.3); 
-    border-color: rgba(255, 255, 255, 0.03);
+/* Recuperando as cores originais do Dark Mode */
+body.dark-theme .glass-form input,
+body.dark-theme .glass-form select,
+body.dark-theme .glass-form textarea {
+    background-color: rgba(0, 0, 0, 0.3) !important; 
+    border-color: rgba(255, 255, 255, 0.03) !important;
+    color: #ffffff !important;
 }
 
-.gf-group input:focus,
-.gf-group select:focus,
-.gf-group textarea:focus {
-    background-color: rgba(0, 0, 0, 0.01);
-    border-color: var(--brand-blue-light);
+.glass-form input:focus,
+.glass-form select:focus,
+.glass-form textarea:focus {
+    background-color: #ffffff !important; /* Fica branco só na hora que clicar */
+    border-color: var(--brand-blue-light) !important;
+    box-shadow: 0 0 0 3px rgba(0, 69, 225, 0.15) !important;
 }
 
-body.dark-theme .gf-group input:focus,
-body.dark-theme .gf-group select:focus,
-body.dark-theme .gf-group textarea:focus {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+body.dark-theme .glass-form input:focus,
+body.dark-theme .glass-form select:focus,
+body.dark-theme .glass-form textarea:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
 }
 
 /* ------------------------------------- */
@@ -309,7 +356,7 @@ body.dark-theme .gf-group textarea:focus {
     width: 100%;
 }
 
-.gf-group select {
+.glass-form select {
     appearance: none;
     cursor: pointer;
     width: 100%;
@@ -323,33 +370,35 @@ body.dark-theme .gf-group textarea:focus {
     pointer-events: none;
 }
 
-.gf-group select option {
+.glass-form select option {
     background-color: #ffffff;
     color: #0f172a;
 }
 
-body.dark-theme .gf-group select option {
+body.dark-theme .glass-form select option {
     background-color: #0f172a; 
     color: #ffffff;            
 }
 
-.gf-group textarea {
+.glass-form textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-/* Botão Submit Contraste */
+/* ------------------------------------- */
+/* BOTÃO SUBMIT                          */
+/* ------------------------------------- */
 .glass-submit-btn {
     margin-top: 8px;
     padding: 18px;
-    background-color: var(--text-main);
-    color: var(--bg-page);
+    background-color: var(--brand-blue-light); 
+    color: #ffffff;
     border: none;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.3s ease;
     width: 100%;
     box-sizing: border-box;
 }
@@ -360,13 +409,18 @@ body.dark-theme .glass-submit-btn {
 }
 
 .glass-submit-btn:hover {
-    opacity: 0.9;
+    background-color: #0036b3;
     transform: translateY(-2px);
 }
 
-/* ------------------------------------- */
-/* RESPONSIVIDADE MOBILE ALINHADA        */
-/* ------------------------------------- */
+body.dark-theme .glass-submit-btn:hover {
+    opacity: 0.9;
+    background-color: var(--brand-white);
+}
+
+/* =================================================================
+   RESPONSIVIDADE MOBILE 
+================================================================= */
 @media (max-width: 992px) {
     .contact-container {
         flex-direction: column;
@@ -374,10 +428,9 @@ body.dark-theme .glass-submit-btn {
     }
 }
 
-/* Ajustes agressivos para telas muito pequenas (<480px e 442px) */
 @media (max-width: 768px) {
     .contact-section {
-        padding: 80px 16px; /* Reduz padding lateral da seção */
+        padding: 80px 16px; 
     }
 
     .contact-container {
@@ -397,10 +450,10 @@ body.dark-theme .glass-submit-btn {
 
     .glass-form-container {
         width: 100%;
-        padding: 24px 16px; /* Salva o espaçamento do form em telas pequenas */
+        padding: 24px 16px; 
     }
 
     .glass-info-card {
-        padding: 16px; /* Evita que os cards estourem na lateral */
+        padding: 16px; 
     }
 }

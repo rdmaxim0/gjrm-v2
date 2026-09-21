@@ -128,7 +128,7 @@ export function Projects() {
                                 </div>
                                 
                                 <div className="modal-footer">
-                                    <a href="#contato" className="modal-action-btn" onClick={closeModal}>
+                                    <a href="#formulario-contato" className="modal-action-btn" onClick={closeModal}>
                                         Solicitar Mão de Obra
                                     </a>
                                 </div>

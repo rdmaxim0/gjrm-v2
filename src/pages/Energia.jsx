@@ -153,7 +153,7 @@ export default function Energia() {
             <h2 className="section-title">Mão de Obra Especializada</h2>
             <p>Quer você seja um cliente residencial ou um condomínio de grande porte, a instalação de equipamentos de alta potência exige responsabilidade. Nós não vendemos os sistemas, nosso foco é 100% na qualidade da execução.</p>
             <p className="p-before-btn">Garantimos que a infraestrutura do seu veículo elétrico ou painel solar seja montada seguindo rigorosamente os projetos e normas, protegendo seu patrimônio e a garantia dos seus equipamentos.</p>
-            <a href="#contato" className="btn-secondary">Saber Mais</a>
+            <a href="#formulario-contato" className="btn-secondary">Saber Mais</a>
           </div>
           <div className="about-image">
             <img src={imgUs} alt="Engenheiro instalando painel solar" className="foto-sobre" loading="lazy" decoding="async" />
@@ -225,7 +225,7 @@ export default function Energia() {
               <div className="service-content">
                 <h3>Carregadores Veiculares</h3>
                 <p>Montagem de quadros com DR específico, passagem de cabeamento antichama e fixação do Wallbox em residências e garagens.</p>
-                <a href="#contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
+                <a href="#formulario-contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
               </div>
             </div>
             <div className="service-card">
@@ -236,7 +236,7 @@ export default function Energia() {
               <div className="service-content">
                 <h3>Painéis Fotovoltaicos</h3>
                 <p>Fixação das estruturas de suporte em telhados e passagem segura de toda a linha de corrente contínua até o inversor.</p>
-                <a href="#contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
+                <a href="#formulario-contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
               </div>
             </div>
             <div className="service-card">
@@ -247,7 +247,7 @@ export default function Energia() {
               <div className="service-content">
                 <h3>Adequação de Infraestrutura</h3>
                 <p>Preparação e redimensionamento da rede elétrica local para suportar a demanda dos novos equipamentos com segurança.</p>
-                <a href="#contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
+                <a href="#formulario-contato" className="service-link">Solicitar Orçamento <span>➔</span></a>
               </div>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function Energia() {
                         </div>
                     </div>
 
-                    <a href="https://wa.me/5521983873080?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20energia%20da%20GJRM%20Engenharia." target="_blank" rel="noopener noreferrer" className="glass-info-card wpp-card">
+                    <a href="https://wa.me/5521983873080?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20energia%20solar%20da%20GJRM%20Engenharia%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20a%20execu%C3%A7%C3%A3o%20de%20uma%20infraestrutura%20(Carregador%20EV%20/%20Painel%20Solar)." target="_blank" rel="noopener noreferrer" className="glass-info-card wpp-card">
                         <div className="gic-icon wpp-icon"><MessageCircle size={20} /></div>
                         <div className="gic-text">
                             <span className="gic-value">Falar direto no WhatsApp</span>
@@ -307,7 +307,7 @@ export default function Energia() {
             </div>
 
             {/* Coluna da Direita: Formulário */}
-            <div className="contact-right">
+            <div className="contact-right" id="formulario-contato" >
                 <div className="glass-form-container">
                     <form onSubmit={handleSubmit} className="glass-form">
                         

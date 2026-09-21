@@ -97,7 +97,7 @@ export function Contacts() {
                 </div>
 
                 {/* Coluna da Direita: Formulário Glassmorphism unificado */}
-                <div className="contact-right">
+                <div className="contact-right" id="formulario-contato" style={{ scrollMarginTop: '160px' }}>
                     <div className="glass-form-container">
                         <form onSubmit={handleSubmit} className="glass-form">
                             

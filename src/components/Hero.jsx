@@ -22,7 +22,7 @@ export function Hero() {
                     </p>
                     
                     <div className="hero-actions fade-up-4">
-                        <a href="#contato" className="hero-btn-primary">
+                        <a href="#formulario-contato" className="hero-btn-primary">
                             Falar com um Especialista
                         </a>
                         <a href="#portfolio" className="hero-btn-secondary">
